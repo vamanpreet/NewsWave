@@ -20,7 +20,7 @@ To run this project, you need to have the following installed:
 ### Installation
 
 1. Clone the repository:
-2.cd news-app
+2. cd news-app
 3. Create a .env.local file in the root of your project and add your API key.    REACT_APP_NEWS_API_KEY=your_api_key_here
 4. npm run start
 
