@@ -1,4 +1,5 @@
 import React from 'react'
+import '../App.css';
 
 export default function NewsItem (props) {
 
@@ -6,7 +7,7 @@ export default function NewsItem (props) {
 
     return (
         <div className="my-3">
-            <div className="card">
+            <div className="card container">
                 <div style={{display:'flex', justifyContent:'flex-end', position:'absolute', right:'0'}}>
                     <span className="badge rounded-pill bg-danger" style={{left:"90%", zIndex:"1"}}>{source}</span>
                 </div>
@@ -15,7 +16,7 @@ export default function NewsItem (props) {
                         <h5 className="card-title">{title}...</h5>
                         <p className="card-text">{description}...</p>
                         <p className="card-text"><small className="text-muted">By {author? author : "unknown"} on {new Date(date).toGMTString()}</small></p>
-                        <a href={newsUrl} rel='noreferrer' target="_blank" className="btn btn-sm btn-primary">Read More</a>
+                        <a href={newsUrl} rel='noreferrer' target="_blank" className="btn btn-sm btn-dark">Read More</a>
                     </div>
             </div>
         </div>
