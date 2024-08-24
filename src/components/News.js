@@ -16,7 +16,6 @@ export default function News({
     const [page, setPage] = useState(1);
     const [totalResults, setTotalResults] = useState(0);
 
-    const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
     const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
@@ -73,7 +72,6 @@ export default function News({
                 hasMore={articles.length !== totalResults}
                 loader={<Spinner />}
             >
-            >
                 <div className="container">
                     <div className="row">
                         {articles.map((element, index) => (
@@ -103,17 +101,12 @@ export default function News({
             </InfiniteScroll>
         </>
     );
-    );
 }
 
 News.propTypes = {
     country: PropTypes.string,
     pageSize: PropTypes.number,
     category: PropTypes.string,
-    apiKey: PropTypes.string.isRequired,
-    setProgress: PropTypes.func.isRequired
-};
-
     apiKey: PropTypes.string.isRequired,
     setProgress: PropTypes.func.isRequired
 };
