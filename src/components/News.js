@@ -18,6 +18,8 @@ export default function News({
 
     const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
+    const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+
     const updateNews = async () => {
         try {
             setProgress(10);
@@ -71,10 +73,20 @@ export default function News({
                 hasMore={articles.length !== totalResults}
                 loader={<Spinner />}
             >
+            >
                 <div className="container">
                     <div className="row">
                         {articles.map((element, index) => (
                             <div className="col-md-4" key={`${element.url}-${index}`}>
+                                <NewsItem
+                                    title={element.title}
+                                    description={element.description ? element.description.slice(0, 88) : ""}
+                                    imageUrl={element.urlToImage}
+                                    newsUrl={element.url}
+                                    author={element.author}
+                                    date={element.publishedAt}
+                                    source={element.source.name}
+                                />
                                 <NewsItem
                                     title={element.title}
                                     description={element.description ? element.description.slice(0, 88) : ""}
@@ -91,12 +103,17 @@ export default function News({
             </InfiniteScroll>
         </>
     );
+    );
 }
 
 News.propTypes = {
     country: PropTypes.string,
     pageSize: PropTypes.number,
     category: PropTypes.string,
+    apiKey: PropTypes.string.isRequired,
+    setProgress: PropTypes.func.isRequired
+};
+
     apiKey: PropTypes.string.isRequired,
     setProgress: PropTypes.func.isRequired
 };
